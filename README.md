@@ -1,4 +1,4 @@
-# React Continuous Carousel
+# React Continuous Carousel 🎠
 
 React wrapper for [continuous-carousel](https://github.com/jonchretien/continuous-carousel) — an accessible, infinite-loop carousel.
 
