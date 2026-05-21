@@ -15,10 +15,6 @@
   height: var(--demo-h, 100px);
 }
 
-.demo-carousel--vertical {
-  width: 200px;
-  margin: 0 auto;
-}
 
 .demo-wrapper {
   border: 1px solid var(--vp-c-divider);
