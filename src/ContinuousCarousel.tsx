@@ -2,12 +2,12 @@ import { forwardRef, useCallback, useEffect, useImperativeHandle, useRef, Childr
 import ContinuousCarouselFactory from 'continuous-carousel';
 import type { ContinuousCarouselProps } from './types';
 
-export const ContinuousCarousel = forwardRef<HTMLUListElement, ContinuousCarouselProps>(
+export const ContinuousCarousel = forwardRef<HTMLDivElement, ContinuousCarouselProps>(
   function ContinuousCarousel(
     { children, className, onSlideChange, onPause, onPlay, onDestroy, ...config },
     forwardedRef,
   ) {
-    const containerRef = useRef<HTMLUListElement>(null);
+    const containerRef = useRef<HTMLDivElement>(null);
     const instanceRef = useRef<ReturnType<typeof ContinuousCarouselFactory> | null>(null);
     const childCount = Children.count(children);
 
@@ -45,11 +45,13 @@ export const ContinuousCarousel = forwardRef<HTMLUListElement, ContinuousCarouse
     }, [getConfig]);
 
     return (
-      <ul ref={containerRef} className={`c-carousel-container${className ? ` ${className}` : ''}`}>
-        {Children.map(children, (child) => (
-          <li className="c-carousel-item">{child}</li>
-        ))}
-      </ul>
+      <div ref={containerRef} className={`c-carousel-container${className ? ` ${className}` : ''}`}>
+        <ul className="c-carousel-group">
+          {Children.map(children, (child) => (
+            <li className="c-carousel-item">{child}</li>
+          ))}
+        </ul>
+      </div>
     );
   },
 );
