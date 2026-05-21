@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import 'continuous-carousel/css'
 import { useContinuousCarousel } from 'react-continuous-carousel'
 
@@ -11,11 +12,22 @@ const SLIDES = [
 ]
 
 export function CarouselControlsDemoReact() {
+  const [isPlaying, setIsPlaying] = useState(true)
   const { ref, play, pause } = useContinuousCarousel({
     numVisible: 3,
     interval: 2500,
     pauseOnHover: true,
   })
+
+  function handlePause() {
+    pause()
+    setIsPlaying(false)
+  }
+
+  function handlePlay() {
+    play()
+    setIsPlaying(true)
+  }
 
   return (
     <div className="demo-wrapper">
@@ -36,8 +48,8 @@ export function CarouselControlsDemoReact() {
         </div>
       </div>
       <div className="demo-controls">
-        <button type="button" onClick={pause}>Pause</button>
-        <button type="button" onClick={play}>Play</button>
+        <button type="button" onClick={handlePause} data-active={!isPlaying}>Pause</button>
+        <button type="button" onClick={handlePlay} data-active={isPlaying}>Play</button>
       </div>
     </div>
   )

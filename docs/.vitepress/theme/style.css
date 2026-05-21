@@ -56,3 +56,8 @@
   background: var(--vp-c-brand-1);
   color: #fff;
 }
+
+.demo-controls button[data-active="true"] {
+  background: var(--vp-c-brand-1);
+  color: #fff;
+}
