@@ -1,4 +1,4 @@
-import { forwardRef, useCallback, useEffect, useImperativeHandle, useRef, Children } from 'react';
+import { forwardRef, useCallback, useEffect, useImperativeHandle, useRef, Children, cloneElement, isValidElement } from 'react';
 import ContinuousCarouselFactory from 'continuous-carousel';
 import type { ContinuousCarouselProps } from './types';
 
@@ -9,11 +9,13 @@ export const ContinuousCarousel = forwardRef<HTMLDivElement, ContinuousCarouselP
   ) {
     const containerRef = useRef<HTMLDivElement>(null);
     const instanceRef = useRef<ReturnType<typeof ContinuousCarouselFactory> | null>(null);
-    const childCount = Children.count(children);
+
+    // Count <li> children inside the <ul> for reinit detection
+    const ulChild = children as React.ReactElement<React.HTMLAttributes<HTMLUListElement> & { children?: React.ReactNode }>;
+    const childCount = Children.count(ulChild?.props?.children);
 
     useImperativeHandle(forwardedRef, () => containerRef.current!, []);
 
-    // Build full config with callbacks
     const getConfig = useCallback(() => {
       return {
         ...config,
@@ -24,7 +26,7 @@ export const ContinuousCarousel = forwardRef<HTMLDivElement, ContinuousCarouselP
       };
     }, [config, onSlideChange, onPause, onPlay, onDestroy]);
 
-    // Init/reinit when child count changes
+    // Init/reinit when slide count changes
     useEffect(() => {
       const node = containerRef.current;
       if (!node) return;
@@ -44,13 +46,27 @@ export const ContinuousCarousel = forwardRef<HTMLDivElement, ContinuousCarouselP
       instanceRef.current?.updateConfig(getConfig());
     }, [getConfig]);
 
+    // Inject c-carousel-group onto the <ul> and c-carousel-item onto each <li>
+    const renderGroup = () => {
+      if (!isValidElement(ulChild)) return children;
+      const items = Children.map(ulChild.props.children, (child) => {
+        if (!isValidElement(child)) return child;
+        const li = child as React.ReactElement<React.HTMLAttributes<HTMLLIElement>>;
+        const existing = li.props.className;
+        return cloneElement(li, {
+          className: existing ? `c-carousel-item ${existing}` : 'c-carousel-item',
+        });
+      });
+      return cloneElement(ulChild, { className: 'c-carousel-group', children: items });
+    };
+
     return (
-      <div ref={containerRef} className={`c-carousel-container${className ? ` ${className}` : ''}`}>
-        <ul className="c-carousel-group">
-          {Children.map(children, (child) => (
-            <li className="c-carousel-item">{child}</li>
-          ))}
-        </ul>
+      <div
+        ref={containerRef}
+        className={`c-carousel-container${className ? ` ${className}` : ''}`}
+        data-direction={config.direction ?? 'horizontal'}
+      >
+        {renderGroup()}
       </div>
     );
   },

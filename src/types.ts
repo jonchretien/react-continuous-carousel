@@ -19,7 +19,8 @@ export type CarouselOptions = Partial<
 
 /** Props for the ContinuousCarousel component. */
 export interface ContinuousCarouselProps extends CarouselOptions, CarouselCallbacks {
-  children: React.ReactNode;
+  /** A single <ul> element whose <li> children become slides. */
+  children: React.ReactElement<React.HTMLAttributes<HTMLUListElement>>;
   className?: string;
 }
 

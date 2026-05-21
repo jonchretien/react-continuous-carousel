@@ -25,15 +25,17 @@ beforeEach(() => {
 
 afterEach(cleanup);
 
+const slides = (
+  <ul>
+    <li>Slide 1</li>
+    <li>Slide 2</li>
+    <li>Slide 3</li>
+  </ul>
+);
+
 describe('ContinuousCarousel', () => {
   it('renders children wrapped in list items', () => {
-    render(
-      <ContinuousCarousel>
-        <div>Slide 1</div>
-        <div>Slide 2</div>
-        <div>Slide 3</div>
-      </ContinuousCarousel>,
-    );
+    render(<ContinuousCarousel>{slides}</ContinuousCarousel>);
 
     const items = screen.getAllByRole('listitem');
     expect(items).toHaveLength(3);
@@ -45,7 +47,7 @@ describe('ContinuousCarousel', () => {
   it('applies c-carousel-container class to container', () => {
     render(
       <ContinuousCarousel>
-        <div>Slide</div>
+        <ul><li>Slide</li></ul>
       </ContinuousCarousel>,
     );
 
@@ -56,7 +58,7 @@ describe('ContinuousCarousel', () => {
   it('appends custom className', () => {
     render(
       <ContinuousCarousel className="my-carousel">
-        <div>Slide</div>
+        <ul><li>Slide</li></ul>
       </ContinuousCarousel>,
     );
 
@@ -67,7 +69,7 @@ describe('ContinuousCarousel', () => {
   it('initializes carousel on mount', () => {
     render(
       <ContinuousCarousel direction="vertical" numVisible={2}>
-        <div>Slide</div>
+        <ul><li>Slide</li></ul>
       </ContinuousCarousel>,
     );
 
@@ -84,7 +86,7 @@ describe('ContinuousCarousel', () => {
 
     const { unmount } = render(
       <ContinuousCarousel>
-        <div>Slide</div>
+        <ul><li>Slide</li></ul>
       </ContinuousCarousel>,
     );
 
@@ -98,7 +100,7 @@ describe('ContinuousCarousel', () => {
 
     render(
       <ContinuousCarousel onSlideChange={onSlideChange} onPause={onPause}>
-        <div>Slide</div>
+        <ul><li>Slide</li></ul>
       </ContinuousCarousel>,
     );
 
@@ -114,7 +116,7 @@ describe('ContinuousCarousel', () => {
 
     render(
       <ContinuousCarousel ref={ref}>
-        <div>Slide</div>
+        <ul><li>Slide</li></ul>
       </ContinuousCarousel>,
     );
 
@@ -125,12 +127,19 @@ describe('ContinuousCarousel', () => {
   it('renders c-carousel-group ul inside container', () => {
     render(
       <ContinuousCarousel>
-        <div>Slide</div>
+        <ul><li>Slide</li></ul>
       </ContinuousCarousel>,
     );
 
     const group = document.querySelector('.c-carousel-container .c-carousel-group');
     expect(group).not.toBeNull();
     expect(group?.tagName).toBe('UL');
+  });
+
+  it('injects c-carousel-item onto each li', () => {
+    render(<ContinuousCarousel>{slides}</ContinuousCarousel>);
+
+    const items = document.querySelectorAll('.c-carousel-item');
+    expect(items).toHaveLength(3);
   });
 });
