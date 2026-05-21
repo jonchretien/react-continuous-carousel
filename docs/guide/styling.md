@@ -16,15 +16,18 @@ This provides the flexbox layout and overflow masking required for continuous sc
 
 | Class | Element | Notes |
 |---|---|---|
-| `c-carousel-container` | `<ul>` | Scroll viewport and flex container. |
-| `c-carousel-item` | `<li>` | Each slide wrapper. Must be direct children of the container. |
+| `c-carousel-container` | `<div>` | Scroll viewport wrapper. |
+| `c-carousel-group` | `<ul>` | Flex container that receives CSS transforms. |
+| `c-carousel-item` | `<li>` | Each slide wrapper. Direct children of the group. |
 
-`ContinuousCarousel` applies both automatically. With `useContinuousCarousel` you apply them manually:
+`ContinuousCarousel` applies these classes automatically. With `useContinuousCarousel` you apply them manually:
 
 ```tsx
-<ul ref={ref} className="c-carousel-container">
-  <li className="c-carousel-item">...</li>
-</ul>
+<div ref={ref} className="c-carousel-container">
+  <ul className="c-carousel-group">
+    <li className="c-carousel-item">...</li>
+  </ul>
+</div>
 ```
 
 ## Adding a custom class
@@ -36,7 +39,9 @@ This provides the flexbox layout and overflow masking required for continuous sc
 Rendered HTML:
 
 ```html
-<ul class="c-carousel-container my-carousel">...</ul>
+<div class="c-carousel-container my-carousel">
+  <ul class="c-carousel-group">...</ul>
+</div>
 ```
 
 ## Slide sizing
