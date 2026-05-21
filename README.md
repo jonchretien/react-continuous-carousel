@@ -1,5 +1,8 @@
 # React Continuous Carousel 🎠
 
+[![npm version](https://img.shields.io/npm/v/react-continuous-carousel.svg)](https://www.npmjs.com/package/react-continuous-carousel)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+
 React wrapper for [continuous-carousel](https://github.com/jonchretien/continuous-carousel) — an accessible, infinite-loop carousel.
 
 ## Install
