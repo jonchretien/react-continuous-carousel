@@ -53,7 +53,7 @@ import { useContinuousCarousel } from 'react-continuous-carousel'
 function useContinuousCarousel(
   options?: UseContinuousCarouselOptions
 ): {
-  ref: (node: HTMLUListElement | null) => void
+  ref: (node: HTMLElement | null) => void
   play: () => void
   pause: () => void
 }
@@ -63,7 +63,7 @@ function useContinuousCarousel(
 
 | Key | Type | Description |
 |---|---|---|
-| `ref` | `(node: HTMLUListElement \| null) => void` | Callback ref to attach to the `<ul>`. Initialises the carousel on mount and destroys it on unmount. |
+| `ref` | `(node: HTMLElement \| null) => void` | Callback ref to attach to the `<ul>`. Initialises the carousel on mount and destroys it on unmount. |
 | `play` | `() => void` | Resume animation. No-op if already playing. |
 | `pause` | `() => void` | Pause animation. No-op if already paused. |
 
