@@ -16,29 +16,26 @@ export default defineConfig({
       { text: 'Examples',  link: '/examples/horizontal',   activeMatch: '/examples/' },
       { text: 'Changelog', link: '/changelog' },
     ],
-    sidebar: {
-      '/guide/': [
-        {
-          text: 'Guide',
-          items: [
-            { text: 'Getting Started', link: '/guide/getting-started' },
-            { text: 'API Reference',   link: '/guide/api' },
-            { text: 'Styling',         link: '/guide/styling' },
-          ],
-        },
-      ],
-      '/examples/': [
-        {
-          text: 'Examples',
-          items: [
-            { text: 'Horizontal',    link: '/examples/horizontal' },
-            { text: 'Vertical',      link: '/examples/vertical' },
-            { text: 'Reverse',       link: '/examples/reverse' },
-            { text: 'With Controls', link: '/examples/controls' },
-          ],
-        },
-      ],
-    },
+    sidebar: [
+      {
+        text: 'Guide',
+        items: [
+          { text: 'Getting Started', link: '/guide/getting-started' },
+          { text: 'Configuration',   link: '/guide/configuration' },
+          { text: 'API Methods',     link: '/guide/api' },
+          { text: 'Styling',         link: '/guide/styling' },
+        ],
+      },
+      {
+        text: 'Examples',
+        items: [
+          { text: 'Horizontal',    link: '/examples/horizontal' },
+          { text: 'Vertical',      link: '/examples/vertical' },
+          { text: 'Reverse',       link: '/examples/reverse' },
+          { text: 'With Controls', link: '/examples/controls' },
+        ],
+      },
+    ],
     socialLinks: [
       { icon: 'github', link: 'https://github.com/jonchretien/react-continuous-carousel' },
     ],
