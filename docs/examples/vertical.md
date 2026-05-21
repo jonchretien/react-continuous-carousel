@@ -16,7 +16,7 @@ import 'continuous-carousel/css'
 
 function App() {
   return (
-    <div style={{ height: '140px' }}>
+    <div style={{ height: '140px', width: '200px', margin: '0 auto' }}>
       <ContinuousCarousel direction="vertical" numVisible={1} interval={2000}>
         <div>Slide 1</div>
         <div>Slide 2</div>
@@ -40,7 +40,7 @@ import 'continuous-carousel/css'
 
 function App() {
   return (
-    <div style={{ height: '220px' }}>
+    <div style={{ height: '220px', width: '200px', margin: '0 auto' }}>
       <ContinuousCarousel direction="vertical" numVisible={3} interval={2000}>
         <div>Slide 1</div>
         <div>Slide 2</div>

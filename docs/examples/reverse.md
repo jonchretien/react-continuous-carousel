@@ -52,7 +52,7 @@ function App() {
 }
 ```
 
-## Multiple Items
+## Horizontal — Multiple Items
 
 <CarouselDemo :reverse="true" :numVisible="3" :interval="2500" />
 
