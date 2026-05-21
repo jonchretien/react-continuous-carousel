@@ -1,5 +1,6 @@
 import 'continuous-carousel/css'
 import { ContinuousCarousel } from 'react-continuous-carousel'
+import type { ContinuousCarouselProps } from 'react-continuous-carousel'
 
 const SLIDES = [
   { label: 'Slide 1', color: '#3b82f6' },
@@ -10,14 +11,9 @@ const SLIDES = [
   { label: 'Slide 6', color: '#ef4444' },
 ]
 
-interface Props {
-  direction?: 'horizontal' | 'vertical'
-  reverse?: boolean
-  numVisible?: number
-  interval?: number
-  height?: string
-  pauseOnHover?: boolean
-}
+type Props = Pick<ContinuousCarouselProps,
+  'direction' | 'reverse' | 'numVisible' | 'interval' | 'pauseOnHover'
+> & { height?: string }
 
 export function CarouselDemoReact({
   direction = 'horizontal',
