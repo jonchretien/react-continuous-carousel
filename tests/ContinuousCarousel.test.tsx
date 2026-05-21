@@ -121,4 +121,16 @@ describe('ContinuousCarousel', () => {
     expect(ref.current).toBeInstanceOf(HTMLDivElement);
     expect(ref.current?.className).toContain('c-carousel-container');
   });
+
+  it('renders c-carousel-group ul inside container', () => {
+    render(
+      <ContinuousCarousel>
+        <div>Slide</div>
+      </ContinuousCarousel>,
+    );
+
+    const group = document.querySelector('.c-carousel-container .c-carousel-group');
+    expect(group).not.toBeNull();
+    expect(group?.tagName).toBe('UL');
+  });
 });
