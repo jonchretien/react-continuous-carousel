@@ -2,7 +2,7 @@
 layout: home
 
 hero:
-  name: "react-continuous-carousel"
+  name: "React Continuous Carousel 🎠"
   text: "Seamless infinite carousels for React"
   tagline: A thin, fully-typed React wrapper around the battle-tested continuous-carousel library.
   actions:

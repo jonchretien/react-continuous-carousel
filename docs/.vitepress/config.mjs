@@ -6,7 +6,7 @@ import { resolve } from 'node:path'
 const __dirname = fileURLToPath(new URL('.', import.meta.url))
 
 export default defineConfig({
-  title: 'react-continuous-carousel',
+  title: 'React Continuous Carousel 🎠',
   description: 'React wrapper for the continuous-carousel library',
   base: '/react-continuous-carousel/',
 
