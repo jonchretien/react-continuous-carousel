@@ -43,25 +43,25 @@ describe('ContinuousCarousel', () => {
   });
 
   it('applies c-carousel-container class to container', () => {
-    render(
+    const { container: testContainer } = render(
       <ContinuousCarousel>
         <div>Slide</div>
       </ContinuousCarousel>,
     );
 
-    const list = screen.getByRole('list');
-    expect(list.className).toContain('c-carousel-container');
+    const outer = testContainer.firstChild as HTMLElement;
+    expect(outer.className).toContain('c-carousel-container');
   });
 
   it('appends custom className', () => {
-    render(
+    const { container: testContainer } = render(
       <ContinuousCarousel className="my-carousel">
         <div>Slide</div>
       </ContinuousCarousel>,
     );
 
-    const list = screen.getByRole('list');
-    expect(list.className).toBe('c-carousel-container my-carousel');
+    const outer = testContainer.firstChild as HTMLElement;
+    expect(outer.className).toBe('c-carousel-container my-carousel');
   });
 
   it('initializes carousel on mount', () => {
@@ -110,7 +110,7 @@ describe('ContinuousCarousel', () => {
   });
 
   it('exposes container via forwardRef', () => {
-    const ref = createRef<HTMLUListElement>();
+    const ref = createRef<HTMLDivElement>();
 
     render(
       <ContinuousCarousel ref={ref}>
@@ -118,7 +118,7 @@ describe('ContinuousCarousel', () => {
       </ContinuousCarousel>,
     );
 
-    expect(ref.current).toBeInstanceOf(HTMLUListElement);
+    expect(ref.current).toBeInstanceOf(HTMLDivElement);
     expect(ref.current?.className).toContain('c-carousel-container');
   });
 });
