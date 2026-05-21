@@ -69,11 +69,13 @@ function CustomCarousel() {
 
   return (
     <div>
-      <ul ref={ref} className="c-carousel-container">
-        <li className="c-carousel-item">Slide 1</li>
-        <li className="c-carousel-item">Slide 2</li>
-        <li className="c-carousel-item">Slide 3</li>
-      </ul>
+      <div ref={ref} className="c-carousel-container">
+        <ul className="c-carousel-group">
+          <li className="c-carousel-item">Slide 1</li>
+          <li className="c-carousel-item">Slide 2</li>
+          <li className="c-carousel-item">Slide 3</li>
+        </ul>
+      </div>
       <button onClick={play}>Play</button>
       <button onClick={pause}>Pause</button>
     </div>

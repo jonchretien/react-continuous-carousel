@@ -4,7 +4,7 @@ All carousel logic (animation, infinite loop, observers, a11y) lives in the vani
 
 ## Dual API
 
-- **`ContinuousCarousel` component** — wraps children in `<ul>/<li>` markup, manages vanilla lib lifecycle via `useEffect`, reinits when child count changes. Uses `forwardRef` to expose container node.
+- **`ContinuousCarousel` component** — wraps children in `<div class="c-carousel-container"> → <ul class="c-carousel-group"> → <li class="c-carousel-item">` markup, manages vanilla lib lifecycle via `useEffect`, reinits when child count changes. Uses `forwardRef` to expose container node.
 - **`useContinuousCarousel` hook** — ref callback pattern for users who provide their own markup. Returns `{ ref, play, pause }`.
 
 ## Type derivation
