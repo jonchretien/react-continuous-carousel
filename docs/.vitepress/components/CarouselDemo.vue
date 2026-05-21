@@ -8,11 +8,12 @@
 import { ref, onMounted, onBeforeUnmount } from 'vue'
 
 const props = defineProps({
-  direction:  { type: String,  default: 'horizontal' },
-  reverse:    { type: Boolean, default: false },
-  numVisible: { type: Number,  default: 3 },
-  interval:   { type: Number,  default: 3000 },
-  height:     { type: String,  default: '100px' },
+  direction:    { type: String,  default: 'horizontal' },
+  reverse:      { type: Boolean, default: false },
+  numVisible:   { type: Number,  default: 3 },
+  interval:     { type: Number,  default: 3000 },
+  height:       { type: String,  default: '100px' },
+  pauseOnHover: { type: Boolean, default: false },
 })
 
 const mountEl = ref(null)

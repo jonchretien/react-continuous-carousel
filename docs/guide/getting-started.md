@@ -54,7 +54,7 @@ function App() {
 
 ## Hook API
 
-`useContinuousCarousel` gives you imperative control. Attach the returned `ref` to a `<ul>` with `<li>` children and call `play()` / `pause()` anywhere.
+`useContinuousCarousel` gives you imperative control. Attach the returned `ref` to the container element. Place slides in `<ul className="c-carousel-group">` with `<li className="c-carousel-item">` children, then call `play()` / `pause()` anywhere.
 
 ```tsx
 import { useContinuousCarousel } from 'react-continuous-carousel'
@@ -69,11 +69,13 @@ function App() {
 
   return (
     <>
-      <ul ref={ref} className="c-carousel-container">
-        <li className="c-carousel-item">Slide 1</li>
-        <li className="c-carousel-item">Slide 2</li>
-        <li className="c-carousel-item">Slide 3</li>
-      </ul>
+      <div ref={ref} className="c-carousel-container">
+        <ul className="c-carousel-group">
+          <li className="c-carousel-item">Slide 1</li>
+          <li className="c-carousel-item">Slide 2</li>
+          <li className="c-carousel-item">Slide 3</li>
+        </ul>
+      </div>
       <button onClick={pause}>Pause</button>
       <button onClick={play}>Play</button>
     </>

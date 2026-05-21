@@ -16,6 +16,7 @@ interface Props {
   numVisible?: number
   interval?: number
   height?: string
+  pauseOnHover?: boolean
 }
 
 export function CarouselDemoReact({
@@ -24,6 +25,7 @@ export function CarouselDemoReact({
   numVisible = 3,
   interval = 3000,
   height = '100px',
+  pauseOnHover = false,
 }: Props) {
   const isVertical = direction === 'vertical'
 
@@ -35,7 +37,7 @@ export function CarouselDemoReact({
           reverse={reverse}
           numVisible={numVisible}
           interval={interval}
-          pauseOnHover
+          pauseOnHover={pauseOnHover}
         >
           {SLIDES.map(({ label, color }) => (
             <div

@@ -6,7 +6,7 @@ title: API Reference
 
 ## `ContinuousCarousel`
 
-A `forwardRef` component. The forwarded ref points to the underlying `<ul>` DOM element.
+A `forwardRef` component. The forwarded ref points to the outer `<div>` container element.
 
 ```tsx
 import { ContinuousCarousel } from 'react-continuous-carousel'
@@ -17,7 +17,7 @@ import { ContinuousCarousel } from 'react-continuous-carousel'
 | Prop | Type | Default | Description |
 |---|---|---|---|
 | `children` | `React.ReactNode` | — | **Required.** Each child becomes a `<li class="c-carousel-item">`. |
-| `className` | `string` | `undefined` | Extra class appended to the `<ul>`. Base class `c-carousel-container` is always present. |
+| `className` | `string` | `undefined` | Extra class appended to the container `<div>`. Base class `c-carousel-container` is always present. |
 | `direction` | `'horizontal' \| 'vertical'` | `'horizontal'` | Scroll axis. |
 | `numVisible` | `number` | `3` | Slides visible at once. |
 | `interval` | `number` | `3000` | Milliseconds between scroll steps. |
@@ -32,7 +32,7 @@ import { ContinuousCarousel } from 'react-continuous-carousel'
 ### Forwarded ref
 
 ```tsx
-const listRef = useRef<HTMLUListElement>(null)
+const listRef = useRef<HTMLDivElement>(null)
 
 <ContinuousCarousel ref={listRef} numVisible={3}>
   ...
