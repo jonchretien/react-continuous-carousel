@@ -43,24 +43,24 @@ describe('ContinuousCarousel', () => {
   });
 
   it('applies c-carousel-container class to container', () => {
-    const { container: testContainer } = render(
+    render(
       <ContinuousCarousel>
         <div>Slide</div>
       </ContinuousCarousel>,
     );
 
-    const outer = testContainer.firstChild as HTMLElement;
+    const outer = document.querySelector('.c-carousel-container')!;
     expect(outer.className).toContain('c-carousel-container');
   });
 
   it('appends custom className', () => {
-    const { container: testContainer } = render(
+    render(
       <ContinuousCarousel className="my-carousel">
         <div>Slide</div>
       </ContinuousCarousel>,
     );
 
-    const outer = testContainer.firstChild as HTMLElement;
+    const outer = document.querySelector('.c-carousel-container')!;
     expect(outer.className).toBe('c-carousel-container my-carousel');
   });
 
