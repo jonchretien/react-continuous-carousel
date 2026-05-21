@@ -49,12 +49,14 @@ import 'continuous-carousel/css'
 function App() {
   return (
     <ContinuousCarousel className="my-carousel" direction="vertical" numVisible={3} interval={2000}>
-      <span>Slide 1</span>
-      <span>Slide 2</span>
-      <span>Slide 3</span>
-      <span>Slide 4</span>
-      <span>Slide 5</span>
-      <span>Slide 6</span>
+      <ul>
+        <li>Slide 1</li>
+        <li>Slide 2</li>
+        <li>Slide 3</li>
+        <li>Slide 4</li>
+        <li>Slide 5</li>
+        <li>Slide 6</li>
+      </ul>
     </ContinuousCarousel>
   )
 }
