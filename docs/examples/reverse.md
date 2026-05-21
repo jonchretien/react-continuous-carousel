@@ -63,8 +63,6 @@ function App() {
 ```css
 .my-carousel {
   height: 140px;
-  width: 200px;
-  margin: 0 auto;
 }
 ```
 
