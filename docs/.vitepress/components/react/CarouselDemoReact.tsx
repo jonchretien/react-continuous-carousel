@@ -26,30 +26,30 @@ export function CarouselDemoReact({
   const isVertical = direction === 'vertical'
 
   return (
-    <div className="demo-wrapper" style={{ padding: '1rem' }}>
-      <div style={isVertical ? { height, width: '200px', margin: '0 auto' } : { height }}>
-        <ContinuousCarousel
-          direction={direction}
-          reverse={reverse}
-          numVisible={numVisible}
-          interval={interval}
-          pauseOnHover={pauseOnHover}
-        >
+    <div className="demo-wrapper" style={{ '--demo-h': height } as React.CSSProperties}>
+      <ContinuousCarousel
+        className={`demo-carousel${isVertical ? ' demo-carousel--vertical' : ''}`}
+        direction={direction}
+        reverse={reverse}
+        numVisible={numVisible}
+        interval={interval}
+        pauseOnHover={pauseOnHover}
+      >
+        <ul>
           {SLIDES.map(({ label, color }) => (
-            <div
+            <li
               key={label}
               className="demo-slide"
               style={{
                 background: color,
-                width: isVertical ? '100%' : '180px',
-                height: '100%',
+                ...(isVertical ? { width: '100%' } : { height: '100%' }),
               }}
             >
               {label}
-            </div>
+            </li>
           ))}
-        </ContinuousCarousel>
-      </div>
+        </ul>
+      </ContinuousCarousel>
     </div>
   )
 }

@@ -19,14 +19,14 @@ export function CarouselControlsDemoReact() {
 
   return (
     <div className="demo-wrapper">
-      <div style={{ padding: '1rem', height: '100px' }}>
-        <div ref={ref} className="c-carousel-container">
+      <div style={{ padding: '1rem' }}>
+        <div ref={ref} className="c-carousel-container demo-carousel" data-direction="horizontal">
           <ul className="c-carousel-group">
             {SLIDES.map(({ label, color }) => (
               <li key={label} className="c-carousel-item">
                 <div
                   className="demo-slide"
-                  style={{ background: color, width: '180px', height: '100%' }}
+                  style={{ background: color, width: '100%', height: '100%' }}
                 >
                   {label}
                 </div>
