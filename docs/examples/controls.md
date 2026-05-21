@@ -21,7 +21,7 @@ function App() {
 
   return (
     <>
-      <div ref={ref} className="c-carousel-container">
+      <div ref={ref} className="c-carousel-container my-carousel">
         <ul className="c-carousel-group">
           <li className="c-carousel-item">Slide 1</li>
           <li className="c-carousel-item">Slide 2</li>
@@ -35,5 +35,11 @@ function App() {
       <button onClick={play}>Play</button>
     </>
   )
+}
+```
+
+```css
+.my-carousel {
+  height: 100px;
 }
 ```

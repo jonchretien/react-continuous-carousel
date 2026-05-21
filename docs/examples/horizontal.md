@@ -16,15 +16,23 @@ import 'continuous-carousel/css'
 
 function App() {
   return (
-    <ContinuousCarousel numVisible={1} interval={2500}>
-      <div>Slide 1</div>
-      <div>Slide 2</div>
-      <div>Slide 3</div>
-      <div>Slide 4</div>
-      <div>Slide 5</div>
-      <div>Slide 6</div>
+    <ContinuousCarousel className="my-carousel" numVisible={1} interval={2500}>
+      <ul>
+        <li>Slide 1</li>
+        <li>Slide 2</li>
+        <li>Slide 3</li>
+        <li>Slide 4</li>
+        <li>Slide 5</li>
+        <li>Slide 6</li>
+      </ul>
     </ContinuousCarousel>
   )
+}
+```
+
+```css
+.my-carousel {
+  height: 100px;
 }
 ```
 
@@ -38,15 +46,21 @@ import 'continuous-carousel/css'
 
 function App() {
   return (
-    <ContinuousCarousel numVisible={3} interval={2500}>
-      <div>Slide 1</div>
-      <div>Slide 2</div>
-      <div>Slide 3</div>
-      <div>Slide 4</div>
-      <div>Slide 5</div>
-      <div>Slide 6</div>
+    <ContinuousCarousel className="my-carousel" numVisible={3} interval={2500}>
+      <span>Slide 1</span>
+      <span>Slide 2</span>
+      <span>Slide 3</span>
+      <span>Slide 4</span>
+      <span>Slide 5</span>
+      <span>Slide 6</span>
     </ContinuousCarousel>
   )
+}
+```
+
+```css
+.my-carousel {
+  height: 100px;
 }
 ```
 
@@ -62,14 +76,20 @@ import 'continuous-carousel/css'
 
 function App() {
   return (
-    <ContinuousCarousel numVisible={3} interval={2500} pauseOnHover>
-      <div>Slide 1</div>
-      <div>Slide 2</div>
-      <div>Slide 3</div>
-      <div>Slide 4</div>
-      <div>Slide 5</div>
-      <div>Slide 6</div>
+    <ContinuousCarousel className="my-carousel" numVisible={3} interval={2500} pauseOnHover>
+      <span>Slide 1</span>
+      <span>Slide 2</span>
+      <span>Slide 3</span>
+      <span>Slide 4</span>
+      <span>Slide 5</span>
+      <span>Slide 6</span>
     </ContinuousCarousel>
   )
+}
+```
+
+```css
+.my-carousel {
+  height: 100px;
 }
 ```

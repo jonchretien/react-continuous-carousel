@@ -27,14 +27,22 @@ import 'continuous-carousel/css';
 
 function App() {
   return (
-    <ContinuousCarousel direction="horizontal" numVisible={3} interval={2000} pauseOnHover>
-      <div>Slide 1</div>
-      <div>Slide 2</div>
-      <div>Slide 3</div>
-      <div>Slide 4</div>
-      <div>Slide 5</div>
+    <ContinuousCarousel className="my-carousel" direction="horizontal" numVisible={3} interval={2000} pauseOnHover>
+      <ul>
+        <li>Slide 1</li>
+        <li>Slide 2</li>
+        <li>Slide 3</li>
+        <li>Slide 4</li>
+        <li>Slide 5</li>
+      </ul>
     </ContinuousCarousel>
   );
+}
+```
+
+```css
+.my-carousel {
+  height: 100px;
 }
 ```
 

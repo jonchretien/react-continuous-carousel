@@ -16,17 +16,25 @@ import 'continuous-carousel/css'
 
 function App() {
   return (
-    <div style={{ height: '140px', width: '200px', margin: '0 auto' }}>
-      <ContinuousCarousel direction="vertical" numVisible={1} interval={2000}>
-        <div>Slide 1</div>
-        <div>Slide 2</div>
-        <div>Slide 3</div>
-        <div>Slide 4</div>
-        <div>Slide 5</div>
-        <div>Slide 6</div>
-      </ContinuousCarousel>
-    </div>
+    <ContinuousCarousel className="my-carousel" direction="vertical" numVisible={1} interval={2000}>
+      <ul>
+        <li>Slide 1</li>
+        <li>Slide 2</li>
+        <li>Slide 3</li>
+        <li>Slide 4</li>
+        <li>Slide 5</li>
+        <li>Slide 6</li>
+      </ul>
+    </ContinuousCarousel>
   )
+}
+```
+
+```css
+.my-carousel {
+  height: 140px;
+  width: 200px;
+  margin: 0 auto;
 }
 ```
 
@@ -40,16 +48,22 @@ import 'continuous-carousel/css'
 
 function App() {
   return (
-    <div style={{ height: '220px', width: '200px', margin: '0 auto' }}>
-      <ContinuousCarousel direction="vertical" numVisible={3} interval={2000}>
-        <div>Slide 1</div>
-        <div>Slide 2</div>
-        <div>Slide 3</div>
-        <div>Slide 4</div>
-        <div>Slide 5</div>
-        <div>Slide 6</div>
-      </ContinuousCarousel>
-    </div>
+    <ContinuousCarousel className="my-carousel" direction="vertical" numVisible={3} interval={2000}>
+      <span>Slide 1</span>
+      <span>Slide 2</span>
+      <span>Slide 3</span>
+      <span>Slide 4</span>
+      <span>Slide 5</span>
+      <span>Slide 6</span>
+    </ContinuousCarousel>
   )
+}
+```
+
+```css
+.my-carousel {
+  height: 220px;
+  width: 200px;
+  margin: 0 auto;
 }
 ```
