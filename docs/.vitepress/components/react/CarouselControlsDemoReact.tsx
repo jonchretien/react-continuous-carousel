@@ -20,18 +20,20 @@ export function CarouselControlsDemoReact() {
   return (
     <div className="demo-wrapper">
       <div style={{ padding: '1rem', height: '100px' }}>
-        <ul ref={ref} className="c-carousel-container">
-          {SLIDES.map(({ label, color }) => (
-            <li key={label} className="c-carousel-item">
-              <div
-                className="demo-slide"
-                style={{ background: color, width: '180px', height: '100%' }}
-              >
-                {label}
-              </div>
-            </li>
-          ))}
-        </ul>
+        <div ref={ref} className="c-carousel-container">
+          <ul className="c-carousel-group">
+            {SLIDES.map(({ label, color }) => (
+              <li key={label} className="c-carousel-item">
+                <div
+                  className="demo-slide"
+                  style={{ background: color, width: '180px', height: '100%' }}
+                >
+                  {label}
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
       <div className="demo-controls">
         <button type="button" onClick={pause}>Pause</button>
