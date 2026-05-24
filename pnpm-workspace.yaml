@@ -6,12 +6,10 @@ blockExoticSubdeps: true
 minimumReleaseAge: 1440
 
 trustPolicy: no-downgrade
-# continuous-carousel is maintained by the same author; exclude from trust downgrade check
-# until v1.3.0 is republished with npm provenance
+# continuous-carousel is maintained by the same author; exclude until v1.3.0 is republished with npm provenance
+# chokidar, tinyexec, vite@5 (vitepress dep) predate provenance attestation
 trustPolicyExclude:
   - continuous-carousel
   - chokidar
   - tinyexec
-
-overrides:
-  vite: "^6"
+  - vite
