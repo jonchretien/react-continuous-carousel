@@ -7,6 +7,7 @@ import { ContinuousCarousel } from '../src/ContinuousCarousel';
 const mockInstance = {
   play: vi.fn(),
   pause: vi.fn(),
+  goToSlide: vi.fn(),
   destroy: vi.fn(),
   updateConfig: vi.fn(),
   container: null as unknown as HTMLElement,
@@ -96,16 +97,18 @@ describe('ContinuousCarousel', () => {
 
   it('forwards callbacks as config options', () => {
     const onSlideChange = vi.fn();
+    const onSlideEnd = vi.fn();
     const onPause = vi.fn();
 
     render(
-      <ContinuousCarousel onSlideChange={onSlideChange} onPause={onPause}>
+      <ContinuousCarousel onSlideChange={onSlideChange} onSlideEnd={onSlideEnd} onPause={onPause}>
         <ul><li>Slide</li></ul>
       </ContinuousCarousel>,
     );
 
     const [, config] = mockFactory.mock.calls[0];
     expect(config.onSlideChange).toBe(onSlideChange);
+    expect(config.onSlideEnd).toBe(onSlideEnd);
     expect(config.onPause).toBe(onPause);
     expect(config.onPlay).toBeNull();
     expect(config.onDestroy).toBeNull();

@@ -6,7 +6,8 @@ type ContinuousCarouselConfig = ContinuousCarouselInstance['config'];
 
 /** Callback props extracted from config for top-level component API. */
 export interface CarouselCallbacks {
-  onSlideChange?: (index: number) => void;
+  onSlideChange?: (index: number, element: HTMLElement) => void;
+  onSlideEnd?: (index: number, element: HTMLElement) => void;
   onPause?: () => void;
   onPlay?: () => void;
   onDestroy?: () => void;
@@ -14,7 +15,7 @@ export interface CarouselCallbacks {
 
 /** Vanilla config options minus callbacks (those are top-level props). */
 export type CarouselOptions = Partial<
-  Omit<ContinuousCarouselConfig, 'onSlideChange' | 'onPause' | 'onPlay' | 'onDestroy'>
+  Omit<ContinuousCarouselConfig, 'onSlideChange' | 'onSlideEnd' | 'onPause' | 'onPlay' | 'onDestroy'>
 >;
 
 /** Props for the ContinuousCarousel component. */

@@ -4,7 +4,7 @@ import type { ContinuousCarouselProps } from './types';
 
 export const ContinuousCarousel = forwardRef<HTMLDivElement, ContinuousCarouselProps>(
   function ContinuousCarousel(
-    { children, className, onSlideChange, onPause, onPlay, onDestroy, ...config },
+    { children, className, onSlideChange, onSlideEnd, onPause, onPlay, onDestroy, ...config },
     forwardedRef,
   ) {
     const containerRef = useRef<HTMLDivElement>(null);
@@ -20,11 +20,12 @@ export const ContinuousCarousel = forwardRef<HTMLDivElement, ContinuousCarouselP
       return {
         ...config,
         onSlideChange: onSlideChange ?? null,
+        onSlideEnd: onSlideEnd ?? null,
         onPause: onPause ?? null,
         onPlay: onPlay ?? null,
         onDestroy: onDestroy ?? null,
       };
-    }, [config, onSlideChange, onPause, onPlay, onDestroy]);
+    }, [config, onSlideChange, onSlideEnd, onPause, onPlay, onDestroy]);
 
     // Init/reinit when slide count changes
     useEffect(() => {

@@ -1,6 +1,6 @@
 {
   "name": "react-continuous-carousel",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "A continuous scrolling carousel component for React",
   "type": "module",
   "main": "./dist/index.cjs",
@@ -49,7 +49,7 @@
     "react-dom": ">=18"
   },
   "dependencies": {
-    "continuous-carousel": "^1.1.0"
+    "continuous-carousel": "^1.3.0"
   },
   "devDependencies": {
     "@testing-library/react": "^16.1.0",

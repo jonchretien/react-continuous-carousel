@@ -5,6 +5,7 @@ import { useContinuousCarousel } from '../src/useContinuousCarousel';
 const mockInstance = {
   play: vi.fn(),
   pause: vi.fn(),
+  goToSlide: vi.fn(),
   destroy: vi.fn(),
   updateConfig: vi.fn(),
   container: null as unknown as HTMLElement,
@@ -64,7 +65,7 @@ describe('useContinuousCarousel', () => {
     expect(instance.destroy).toHaveBeenCalled();
   });
 
-  it('exposes play and pause methods', () => {
+  it('exposes play, pause, and goToSlide methods', () => {
     const instance = { ...mockInstance };
     mockFactory.mockReturnValueOnce(instance);
 
@@ -77,9 +78,11 @@ describe('useContinuousCarousel', () => {
     act(() => {
       result.current.play();
       result.current.pause();
+      result.current.goToSlide(2);
     });
 
     expect(instance.play).toHaveBeenCalled();
     expect(instance.pause).toHaveBeenCalled();
+    expect(instance.goToSlide).toHaveBeenCalledWith(2);
   });
 });

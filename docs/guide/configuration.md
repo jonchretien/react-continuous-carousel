@@ -16,7 +16,9 @@ title: Configuration
 | `autoplay` | `boolean` | `true` | Start scrolling on mount. |
 | `pauseOnHover` | `boolean` | `false` | Pause while the cursor is over the carousel. |
 | `reverse` | `boolean` | `false` | Reverse scroll direction. |
-| `onSlideChange` | `(index: number) => void` | `undefined` | Fired when the active slide index changes. |
+| `easing` | `string` | `'ease-in-out'` | CSS `transition-timing-function` applied to slide transitions. |
+| `onSlideChange` | `(index: number, element: HTMLElement) => void` | `undefined` | Fired when the active slide index changes. |
+| `onSlideEnd` | `(index: number, element: HTMLElement) => void` | `undefined` | Fired after the slide transition completes. |
 | `onPause` | `() => void` | `undefined` | Fired when the carousel pauses. |
 | `onPlay` | `() => void` | `undefined` | Fired when the carousel resumes. |
 | `onDestroy` | `() => void` | `undefined` | Fired when the carousel is destroyed on unmount. |
@@ -33,7 +35,9 @@ title: Configuration
 | `autoplay` | `boolean` | `true` | Start scrolling on mount. |
 | `pauseOnHover` | `boolean` | `false` | Pause while the cursor is over the carousel. |
 | `reverse` | `boolean` | `false` | Reverse scroll direction. |
-| `onSlideChange` | `(index: number) => void` | `undefined` | Fired when the active slide index changes. |
+| `easing` | `string` | `'ease-in-out'` | CSS `transition-timing-function` applied to slide transitions. |
+| `onSlideChange` | `(index: number, element: HTMLElement) => void` | `undefined` | Fired when the active slide index changes. |
+| `onSlideEnd` | `(index: number, element: HTMLElement) => void` | `undefined` | Fired after the slide transition completes. |
 | `onPause` | `() => void` | `undefined` | Fired when the carousel pauses. |
 | `onPlay` | `() => void` | `undefined` | Fired when the carousel resumes. |
 | `onDestroy` | `() => void` | `undefined` | Fired when the carousel is destroyed on unmount. |
@@ -53,5 +57,5 @@ import type {
 |---|---|
 | `ContinuousCarouselProps` | All props accepted by `<ContinuousCarousel>`. |
 | `CarouselOptions` | Vanilla library config options (without callbacks). |
-| `CarouselCallbacks` | Callback props: `onSlideChange`, `onPause`, `onPlay`, `onDestroy`. |
+| `CarouselCallbacks` | Callback props: `onSlideChange`, `onSlideEnd`, `onPause`, `onPlay`, `onDestroy`. |
 | `UseContinuousCarouselOptions` | Options for `useContinuousCarousel` (all vanilla config options including callbacks). |

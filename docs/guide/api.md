@@ -39,6 +39,7 @@ function useContinuousCarousel(
   ref: (node: HTMLElement | null) => void
   play: () => void
   pause: () => void
+  goToSlide: (index: number) => void
 }
 ```
 
@@ -49,3 +50,4 @@ function useContinuousCarousel(
 | `ref` | `(node: HTMLElement \| null) => void` | Callback ref to attach to the container `<div>`. Initialises the carousel on mount and destroys it on unmount. |
 | `play` | `() => void` | Resume animation. No-op if already playing. |
 | `pause` | `() => void` | Pause animation. No-op if already paused. |
+| `goToSlide` | `(index: number) => void` | Snap to a 0-based slide index and fire `onSlideChange` / `onSlideEnd`. |

@@ -52,7 +52,8 @@ function App() {
 |------|------|-------------|
 | `children` | `ReactNode` | Slide content (each child wrapped in `<li>`) |
 | `className` | `string` | Additional class on the container |
-| `onSlideChange` | `(index: number) => void` | Called when active slide changes |
+| `onSlideChange` | `(index: number, element: HTMLElement) => void` | Called when active slide changes |
+| `onSlideEnd` | `(index: number, element: HTMLElement) => void` | Called after the slide transition completes |
 | `onPause` | `() => void` | Called when carousel pauses |
 | `onPlay` | `() => void` | Called when carousel plays |
 | `onDestroy` | `() => void` | Called when carousel is destroyed |
@@ -70,7 +71,7 @@ import { useContinuousCarousel } from 'react-continuous-carousel';
 import 'continuous-carousel/css';
 
 function CustomCarousel() {
-  const { ref, play, pause } = useContinuousCarousel({
+  const { ref, play, pause, goToSlide } = useContinuousCarousel({
     direction: 'vertical',
     numVisible: 1,
   });
@@ -98,6 +99,7 @@ The hook returns:
 | `ref` | `(node: HTMLElement \| null) => void` | Ref callback — attach to your container |
 | `play` | `() => void` | Resume carousel |
 | `pause` | `() => void` | Pause carousel |
+| `goToSlide` | `(index: number) => void` | Snap to a 0-based slide index |
 
 ## License
 

@@ -34,6 +34,7 @@ export function useContinuousCarousel(options: UseContinuousCarouselOptions = {}
 
   const play = useCallback(() => instanceRef.current?.play(), []);
   const pause = useCallback(() => instanceRef.current?.pause(), []);
+  const goToSlide = useCallback((index: number) => instanceRef.current?.goToSlide(index), []);
 
-  return { ref, play, pause };
+  return { ref, play, pause, goToSlide };
 }
