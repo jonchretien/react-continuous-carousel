@@ -1,0 +1,17 @@
+allowBuilds:
+  esbuild: true
+
+blockExoticSubdeps: true
+
+minimumReleaseAge: 1440
+
+trustPolicy: no-downgrade
+# continuous-carousel is maintained by the same author; exclude from trust downgrade check
+# until v1.3.0 is republished with npm provenance
+trustPolicyExclude:
+  - continuous-carousel
+  - chokidar
+  - tinyexec
+
+overrides:
+  vite: "^6"

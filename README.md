@@ -8,7 +8,7 @@ React wrapper for [continuous-carousel](https://github.com/jonchretien/continuou
 ## Install
 
 ```bash
-npm install react-continuous-carousel
+pnpm add react-continuous-carousel
 ```
 
 ## CSS

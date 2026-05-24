@@ -44,6 +44,10 @@
   ],
   "author": "Jon Chretien",
   "license": "MIT",
+  "packageManager": "pnpm@11.3.0",
+  "overrides": {
+    "vite": "^6"
+  },
   "peerDependencies": {
     "react": ">=18",
     "react-dom": ">=18"
